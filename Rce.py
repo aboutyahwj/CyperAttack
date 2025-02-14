@@ -505,7 +505,10 @@ class CyberWeaponGUI(QMainWindow):
         self.port_input = QSpinBox()
         self.port_input.setRange(1, 65535)
         self.port_input.setValue(443)
-        
+        # في دالة create_config_tabs() يجب إضافة:
+        self.vuln_info = QTextEdit()
+        self.vuln_info.setReadOnly(True)
+        self.vuln_info.setStyleSheet("background-color: #001100; color: #00ff00;")        
         # Attack parameters
         self.mode_selector = QComboBox()
         self.mode_selector.addItems(self.mode_mapping.keys())
