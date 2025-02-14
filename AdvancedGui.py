@@ -186,7 +186,7 @@ class CyberWeaponPro:
         layers = [
             lambda x: base64.b85encode(x),
             lambda x: binascii.hexlify(x),
-            lambda x: x.swapcase(),
+            lambda x: x.translate(bytes.maketrans(b'abcdef', b'ABCDEF')),
             lambda x: x[::-1],
             lambda x: hashlib.sha3_256(x).digest()[:16] + x,
             lambda x: self.quantum_encrypt(x),
